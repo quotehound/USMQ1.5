@@ -1,43 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+	   <!-- Global site tag (gtag.js) - Google Analytics -->
+	  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144726423-12"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
+
+
+gtag('config', 'UA-144726423-12');
+</script>
+	  
+    <meta charset="utf-8" />
+		<script src="//insurance.mediaalpha.com/js/serve.js"></script>
+		<link rel="icon" href="https://uploads-ssl.webflow.com/5dfd95f78d0e1ee3b32e0f58/5e18f9e72b927d3b76c90f5e_Quote%20Hound.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content="#000000" />
+		<meta name="description" content="" />
+		<link rel="apple-touch-icon" href="https://uploads-ssl.webflow.com/5dfd95f78d0e1ee3b32e0f58/5e18f9e72b927d3b76c90f5e_Quote%20Hound.png" />
+		<title> Free Medicare Quote with US Medicare </title>
+	  
+<meta name="facebook-domain-verification" content="g958svbsmdtkobqrek26fqzzijctux" />
+
+<script
+src="https://code.jquery.com/jquery-3.6.0.min.js"
+integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+crossorigin="anonymous"
+></script>
+
+
+
+<script>
+
+  let homepage = window.location.href;
+
+  if( homepage === '/' || 'localhost:3000')
+  {
+    var requestOptions = {
+  async: true,
+  crossDomain: true,
+  method: "GET",
+  redirect: "follow",
+  url: "https://geolocation-db.com/json/8dd79c70-0801-11ec-a29f-e381a788c2c0",
+};
+
+$.ajax(requestOptions).done(function (response) {
+  console.log(response);
+
+  var parse = JSON.parse(response);
+
+  let zip = parse.postal;
+  let city = parse.city;
+  let state = parse.state;
+
+  localStorage.setItem("zip", zip);
+
+  localStorage.setItem("city", city);
+  localStorage.setItem("state", state);
+
+  document.getElementById("zipCode").value = zip;
+  document.getElementById("zip").value = zip;
+  document.getElementById("city").value = city;
+  document.getElementById("state").value = state;
+
+  
+})
+  };
+  
+
+
+</script>
+
+
+    <script type="text/javascript">
+      /* QuoteHound / Medicare TY - Premium */
+      var MediaAlphaExchange = {
+         "data": {
+            "zip": "90210"
+         },
+         "placement_id": "vLKzTdoPTUxy-P7jysaC7AwW18kMVA",
+         "sub_1": "test sub id",
+         "type": "ad_unit",
+         "version": 17
+      };
+      MediaAlphaExchange__load('mediaalpha_placeholder');
+      </script>
+
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P64QZ28');</script>
+<!-- End Google Tag Manager -->
+	
+	  
   </head>
   <body>
+	  
+	  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P64QZ28"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
     <noscript>You need to enable JavaScript to run this app.</noscript>
+
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+ 
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+  
+  <!-- Generate a TrustedForm Certificate -->
+  <script type="text/javascript">
+    (function() {
+      var field = 'trusted_form_cert_id';
+      var provideReferrer = false;
+      var tf = document.createElement('script');
+      tf.type = 'text/javascript'; tf.async = true; 
+      tf.src = 'http' + ('https:' == document.location.protocol ? 's' : '') +
+      '://api.trustedform.com/trustedform.js?provide_referrer=' + escape(provideReferrer) + '&field=' + escape(field) + '&l='+new Date().getTime()+Math.random();
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(tf, s); }
+    )();
+    </script>
+    <noscript>
+      <img src="http://api.trustedform.com/ns.gif" />
+    </noscript>
+    
+  
+ <script id="LeadiDscript" type="text/javascript">
+(function() {
+var s = document.createElement('script');
+s.id = 'LeadiDscript_campaign';
+s.type = 'text/javascript';
+s.async = true;
+s.src = '//create.lidstatic.com/campaign/1f7e5eb9-813c-7868-efc5-d38eab09ace6.js?snippet_version=2';
+var LeadiDscript = document.getElementById('LeadiDscript');
+LeadiDscript.parentNode.insertBefore(s, LeadiDscript);
+})();
+</script>
+<noscript><img src='//create.leadid.com/noscript.gif?lac=45a2434e-3343-bea3-12ad-6220f9a33148&lck=1f7e5eb9-813c-7868-efc5-d38eab09ace6&snippet_version=2' /></noscript>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+<script> 
+  const urlSearch = window.location.search;
+
+  const urlParams = new URLSearchParams(urlSearch);
+
+  const lp = urlParams.get('lp_request_id');
+  const gclid = urlParams.get('gclid');
+
+  document.getElementById('lp').value = lp;
+
+  localStorage.setItem('lp', lp)
+
+  let lval =  document.getElementById('lp').value;
+
+  if(lval = null){
+    document.getElementById('lp').value = '';
+  }
+  document.getElementById('gclid').value = gclid;
+
+  </script> 
+
+
+	<input id="leadid_token" name="universal_leadid" type="hidden" value=""/>
+
+  <input type="hidden" id="lp" name="lp" /> 
+  <input type="hidden" id="gclid" name="gclid" /> 
+  <input type="hidden" id="url" name='url' />
+  <input type="hidden" id="tele" name="tele" />
+  
+  <input type="hidden" name="zip" id="zipCode" />
+  <input type="hidden" name="city" id="city" />
+  <input type="hidden" name="state" id="state" />
+
+  <input type="hidden" name="health_insurance_plan" id="hp" />
+  <input type="hidden" name="pec" id="pec" />
+
+
+
+  
+
+
+
   </body>
 </html>
