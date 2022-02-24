@@ -15,7 +15,13 @@ class Age extends Component {
 
   
 
-  isMedicare = () => {
+  isMedicare = (values) => {
+
+    values.preventDefault();
+
+    let age = values.currentTarget.dataset.value;
+
+    this.props.setAge(age)
 
     const urlSearch = window.location.search;
 
@@ -31,9 +37,17 @@ class Age extends Component {
     this.props.history.push('/enrolled' + '?lp=' + lp + '&zip=' + zip + '&city=' + city + '&state=' + state);
 
 
+
+
   }
 
-  isHealth = () => {
+  isHealth = (values) => {
+
+    values.preventDefault();
+
+    let age = values.currentTarget.dataset.value;
+
+    this.props.setAge(age)
 
     const urlSearch = window.location.search;
 
@@ -92,10 +106,10 @@ class Age extends Component {
             <div className="w-full space-y-6 relative flex justify-center text-sm leading-5">
 
               <div className="text-sm leading-5 buttonBlock">
-                <button className="chooseButton bg-blue-500 rounded text-white font-bold" type="button" data-config-id="05_button" data-value="Male" onClick={this.isMedicare}>65 or Over</button>
+                <button className="chooseButton bg-blue-500 rounded text-white font-bold" type="button" data-config-id="05_button" data-value="Yes" onClick={this.isMedicare}>65 or Over</button>
 
 
-                <button className="chooseButton bg-blue-500 rounded text-white font-bold" type="button" data-config-id="05_button" data-value="Female" onClick={this.isHealth}>Under 65</button>
+                <button className="chooseButton bg-blue-500 rounded text-white font-bold" type="button" data-config-id="05_button" data-value="No" onClick={this.isHealth}>Under 65</button>
 
                
                 

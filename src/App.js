@@ -46,8 +46,8 @@ class App extends Component {
     ],
 
     postData: {
-      lp_campaign_id: '610208246d0ec',
-			lp_campaign_key: 'Yy4MHdVc3ZKWp6q7RXxg',
+      lp_campaign_id: '6216b43dd07de',
+			lp_campaign_key: '2Bd63GNZDYpV4HnxvTmj',
 			lp_s3: '12',
 			lp_s4: '13',
 			landing_page: 'usmedicarequotes.com',
@@ -60,13 +60,8 @@ class App extends Component {
 			//s1 form fields
       are_you_currently_enrolled_in_both_medicare_part_a_part_b: '',
       household_income: '50000',
-
 			//S2 form fields
       gender: '',
-      zip_code: localStorage.getItem('zip'),
-      city: localStorage.getItem('city'),
-      state: localStorage.getItem('state'),
-      lp_request_id: localStorage.getItem('lp'),
       month: '',
       day: '',
       year: '',
@@ -132,11 +127,16 @@ class App extends Component {
                   this.setState({
                     postData: {
                       ...this.state.postData,
-                      lp_request_id: v,
                        jornaya_lead_id: document.getElementById('leadid_token').value,
                       trusted_form_cert_id: document.getElementById('xxTrustedFormToken_0').value,
+                       zip_code: localStorage.getItem('zip'),
+      city: localStorage.getItem('city'),
+      state: localStorage.getItem('state'),
+          lp_request_id: localStorage.getItem('lp'),
+
                     }
                   })
+                  console.log(this.state.postData)
                 }}
                 
                
@@ -145,7 +145,18 @@ class App extends Component {
               </Route>
 
             <Route path='/age' exact>
-              <Age />
+              <Age
+                                   
+                setAge={(v) => {
+                  this.setState({
+                    postData: {
+                      ...this.state.postData,
+                      over_sixty_five: v,
+                    },
+                  });
+                }}
+
+               />
             </Route>
 
             {/* health plan */}
@@ -157,8 +168,11 @@ class App extends Component {
                     postData: {
                       ...this.state.postData,
                       coverage_time: v,
+
                     },
                   });
+                                    console.log(this.state.postData)
+
                 }}
               />
             </Route>
@@ -253,6 +267,8 @@ class App extends Component {
                           
                           },
                         });
+                                          console.log(this.state.postData)
+
                       }}
                       
                   />
@@ -341,8 +357,6 @@ class App extends Component {
                     postData: {
                       ...this.state.postData,
                       first_name: v,
-                      lp_request_id: document.getElementById('lp').value,
-
                     },
                   });
 console.log(this.state.postData)
