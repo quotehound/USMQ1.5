@@ -53,6 +53,8 @@ $.ajax(requestOptions).done(function (response) {
   let zip = parse.postal;
   let city = parse.city;
   let state = parse.state;
+let ip = parse.IPv4;
+
 
   localStorage.setItem("zip", zip);
 
@@ -63,6 +65,7 @@ $.ajax(requestOptions).done(function (response) {
   document.getElementById("zip").value = zip;
   document.getElementById("city").value = city;
   document.getElementById("state").value = state;
+  document.getElementById('ip').value = ip;
 
   
 })
@@ -153,7 +156,8 @@ LeadiDscript.parentNode.insertBefore(s, LeadiDscript);
   <input type="hidden" name="zip" id="zipCode" />
   <input type="hidden" name="city" id="city" />
   <input type="hidden" name="state" id="state" />
-
+  <input type="hidden" name="ip" id="ip" />
+ 
   <input type="hidden" name="health_insurance_plan" id="hp" />
   <input type="hidden" name="pec" id="pec" />
 
