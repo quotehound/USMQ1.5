@@ -96,23 +96,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-P64QZ28');</script>
 <!-- End Google Tag Manager -->
 	
-<script> 
-  const urlSearch = window.location.search;
-
-  const urlParams = new URLSearchParams(urlSearch);
-
-  const lp = urlParams.get('?lp_request_id');
-  const gclid = urlParams.get('gclid');
-
-  document.getElementById('lp').value = lp;
-
-  localStorage.setItem('lp', lp)
-
-  
-  document.getElementById('gclid').value = gclid;
-
-  </script> 
-	  
   </head>
   <body>
 	  
@@ -177,7 +160,17 @@ LeadiDscript.parentNode.insertBefore(s, LeadiDscript);
 
 
   
+   <script>
+      const urlSearch = window.location.search;
 
+      const urlParams = new URLSearchParams(urlSearch);
+
+      const lp = urlParams.get("lp_request_id");
+      const gclid = urlParams.get("gclid");
+
+      document.getElementById("lp").value = lp;
+      document.getElementById("gclid").value = gclid;
+    </script>
 
 
   </body>
