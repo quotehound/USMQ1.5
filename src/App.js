@@ -153,7 +153,7 @@ class App extends Component {
                   this.setState({
                     postData: {
                       ...this.state.postData,
-                      are_you_over_or_under_65_years_of_age: v,
+                      over_sixty_five: v,
                     },
                   });
                 }}
