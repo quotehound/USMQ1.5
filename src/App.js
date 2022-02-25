@@ -164,24 +164,34 @@ class App extends Component {
             <Route path='/coverage-time' exact>
               <CoverageTime 
               
-               setCoverTime={(v) => {
+                // setCoverTime={(v) => {
+                //   this.setState({
+                //     postData: {
+                //       ...this.state.postData,
+                //       coverage_time: v,
+
+                //     },
+                //   });
+
+                // }
+                
+            
+                setCoverTime={(v) => {
                   this.setState({
                     postData: {
                       ...this.state.postData,
                       coverage_time: v,
-
                     },
                   });
-		       
-		    setLps3={(v)} => {
-			this.setState({
-				postData: {
-					...state.postData,
-					lp_s3: v,
-		    },
-			});
-                                    console.log(this.state.postData)
-
+                }}    
+                
+                setLps3={(u) => {
+                  this.setState({
+                    postData: {
+                      ...this.state.postData,
+                      lp_s3: u,
+                    },
+                  });
                 }}
               />
             </Route>
