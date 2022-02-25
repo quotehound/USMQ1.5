@@ -22,11 +22,7 @@ class CoverageTime extends Component {
     const plan = urlParams.get('plan');
     
     //imme = lp_s3 = 50
-    
-    if(values === 'immediately'){
-
-      this.props.setLps3('50');
-    }
+  
 
 
 
@@ -36,7 +32,11 @@ class CoverageTime extends Component {
 
     this.props.setCoverTime(cover);
 
+  
+    if(values  === 'immediately'){
 
+      this.props.setLps3('50');
+    }
 
     this.props.history.push('/income' + '?lp=' + lp + '&zip=' + zip + '&health_insurance_plan=ACA_Plan' + '&coverage_time=' + cover);
   }
