@@ -20,6 +20,13 @@ class CoverageTime extends Component {
 
 
     const plan = urlParams.get('plan');
+    
+    //imme = lp_s3 = 50
+    
+    if(values === 'immediately'){
+
+      this.props.setLps3('50');
+    }
 
 
 
