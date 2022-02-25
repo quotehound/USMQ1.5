@@ -250,6 +250,7 @@ const lastName = urlParams.get('last_name');
       className="appearance-none w-full p-3 text-lg font-semibold leading-none bg-white rounded " id="phone_home" placeholder="Phone Number" name="phone_home" 
       onChange={this.postPhone} 
       minLength={10}
+maxLength={12}
       required
       />
 
