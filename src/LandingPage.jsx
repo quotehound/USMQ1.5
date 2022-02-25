@@ -113,13 +113,9 @@ this.setState({ zip_code: zipValue })
 const urlSearch = window.location.search;
     const urlParams = new URLSearchParams(urlSearch)
 
-      var lp = urlParams.get('lp_request_id');
+      const lp = urlParams.get('lp_request_id');
 
-    if (lp === null) {
-      var lp = '';
-
-      document.getElementById('lp').value = '';
-}
+  
     const gclid = urlParams.get('gclid');
     
 
@@ -143,7 +139,8 @@ this.props.history.push('/age' + '?lp=' + lp + '&zip=' + zipValue + '&city=' + c
     
   render() {
     const zippy = localStorage.getItem('zip');
-
+    const state = localStorage.getItem('state');
+    const city = localStorage.getItem('city');
         return (
             <div>
               
