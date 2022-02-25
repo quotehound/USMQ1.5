@@ -60,7 +60,7 @@ class App extends Component {
 			user_agent: navigator.userAgent,
 			//s1 form fields
       are_you_currently_enrolled_in_both_medicare_part_a_part_b: '',
-      household_income: '50000',
+      household_income: '',
 			//S2 form fields
       gender: '',
       month: '',
@@ -77,8 +77,7 @@ class App extends Component {
 			phone_home: '',
       entrance_url: '',
       gclid: document.getElementById('gclid').value,
-      health_insurance_plan: 'Individual Family',
-      pre_existing_conditions: 'no',
+     
 
 
     }
@@ -247,7 +246,8 @@ class App extends Component {
                   this.setState({
                     postData: {
                       ...this.state.postData,
-                      pre_existing_conditions: v,
+			     health_insurance_plan: 'Individual Family',
+      pre_existing_conditions: 'no',
                     },
                   });
                 }}
