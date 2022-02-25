@@ -65,6 +65,9 @@ class App extends Component {
       month: '',
       day: '',
       year: '',
+	    zip_code: localStorage.getItem('zip'),
+      city: localStorage.getItem('city'),
+      state: localStorage.getItem('state'),
 			dob: '',
 			address: '',
 			first_name: '',
@@ -129,9 +132,7 @@ class App extends Component {
                       ...this.state.postData,
                        jornaya_lead_id: document.getElementById('leadid_token').value,
                       trusted_form_cert_id: document.getElementById('xxTrustedFormToken_0').value,
-                       zip_code: localStorage.getItem('zip'),
-      city: localStorage.getItem('city'),
-      state: localStorage.getItem('state'),
+                   
           lp_request_id: localStorage.getItem('lp'),
 
                     }
