@@ -37,6 +37,9 @@ class CoverageTime extends Component {
 
       this.props.setLps3('50');
     }
+    else {
+      this.props.setLps3('12');
+    }
 
     this.props.history.push('/income' + '?lp=' + lp + '&zip=' + zip + '&health_insurance_plan=ACA_Plan' + '&coverage_time=' + cover);
   }
