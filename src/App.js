@@ -172,6 +172,14 @@ class App extends Component {
 
                     },
                   });
+		       
+		    setLps3={(v)} => {
+			this.setState({
+				postData: {
+					...state.postData,
+					lp_s3: v,
+		    },
+			});
                                     console.log(this.state.postData)
 
                 }}
