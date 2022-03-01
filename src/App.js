@@ -236,7 +236,7 @@ class App extends Component {
                   this.setState({
                     postData: {
                       ...this.state.postData,
-                      inches: v,
+                      Inches: v,
                     },
                   });
                 }}
