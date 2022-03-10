@@ -3,7 +3,8 @@ import { withRouter } from 'react-router';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
-
+import NavBarH from './health/NavBarH';
+import NavBar from '../NavBar';
 import Footer from '../Footer';
 import './forms.css';
 
@@ -16,6 +17,11 @@ class Name extends Component {
         // this.state = {first_name: ''};
         // this.state = {last_name: ''};
 
+       
+            this.state = {
+              isHealth: true
+            };
+      
 
         this.nextStep = this.nextStep.bind(this);
 
@@ -65,10 +71,11 @@ const gender = urlParams.get('gender');
 const month = urlParams.get('month');
 const day = urlParams.get('day');
 const year = urlParams.get('year');
-const address = urlParams.get('address')
+        const address = urlParams.get('address')
+        const health = urlParams.get('health')
 
      
-    this.props.history.push('/email-phone' + '?lp=' + lp + '&zip=' + zip + '&ab=' + ab + '&gender=' + gender + '&month=' + month + '&day=' + day + '&year=' + year + '&address=' + address + '&first_name=' + firstName + '&last_name=' + lastName);
+    this.props.history.push('/email-phone' + '?lp=' + lp + '&zip=' + zip + '&ab=' + ab + '&gender=' + gender + '&month=' + month + '&day=' + day + '&year=' + year + '&address=' + address + '&first_name=' + firstName + '&last_name=' + lastName + '&health=' + health);
 
     }
 
@@ -111,9 +118,33 @@ const address = urlParams.get('address')
 
 
     render() {
+
+        const urlSearch = window.location.search;
+
+    const urlParams = new URLSearchParams(urlSearch);
+    const health = urlParams.get('health')
+
+    if (health === 'true') {
+      this.state.isHealth = true;
+    }
+    else {
+      this.state.isHealth = false;
+
+    }
+    let NavBarType;
+
+    if (this.state.isHealth === true) {
+      NavBarType = <NavBarH />;
+    } else {
+      NavBarType = <NavBar />;
+    }
+
+        
         return (
             <div>
                 <div className="back bg-white">
+                {NavBarType}
+
                     <div className="bg-blue-500 headerText justify-center align-middle text-center">
                     <h2>Get A No Obligation Medicare Insurance Quote</h2>
                     </div>

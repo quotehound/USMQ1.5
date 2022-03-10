@@ -5,6 +5,9 @@ import Footer from '../Footer.jsx'
 import Axios from 'axios';
 
 
+import NavBarH from './health/NavBarH';
+import NavBar from '../NavBar';
+
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 import PhoneInput from 'react-phone-number-input/input'
@@ -19,6 +22,11 @@ class EmailPhone extends Component {
         // this.state = {email_address: ''}
         // this.state = {phone_home: ''}
     
+     
+        this.state = {
+            isHealth: true
+        }
+        
         this.onFinish = this.onFinish.bind(this);
       }
     
@@ -56,7 +64,9 @@ const day = urlParams.get('day');
 const year = urlParams.get('year');
 const address = urlParams.get('address');
 const firstName = urlParams.get('first_name');
-const lastName = urlParams.get('last_name');
+        const lastName = urlParams.get('last_name');
+        
+        const health = urlParams.get('health')
     
        
   
@@ -66,7 +76,7 @@ const lastName = urlParams.get('last_name');
             loading: true 
           }, this.postMedicare(this.props.postData));
 
-          this.props.history.push('/thank-you' + '?lp=' + lp + '&zip=' + zip + '&ab=' + ab + '&gender=' + gender + '&month=' + month + '&day=' + day + '&year=' + year + '&address=' + address + '&first_name=' + firstName + '&last_name=' + lastName + '&email=' + email + '&phone_home=' + phone)
+          this.props.history.push('/thank-you' + '?lp=' + lp + '&zip=' + zip + '&ab=' + ab + '&gender=' + gender + '&month=' + month + '&day=' + day + '&year=' + year + '&address=' + address + '&first_name=' + firstName + '&last_name=' + lastName + '&email=' + email + '&phone_home=' + phone + '&health=' + health)
     };
 
     postURL = (values) => {
@@ -83,7 +93,8 @@ const day = urlParams.get('day');
 const year = urlParams.get('year');
 const address = urlParams.get('address');
 const firstName = urlParams.get('first_name');
-const lastName = urlParams.get('last_name');
+        const lastName = urlParams.get('last_name');
+        const health = urlParams.get('health')
     
         
 
@@ -179,10 +190,31 @@ const lastName = urlParams.get('last_name');
 
         const firstName = urlParams.get('first_name');
 
+ 
+    const health = urlParams.get('health')
+
+    if (health === 'true') {
+      this.state.isHealth = true;
+    }
+    else {
+      this.state.isHealth = false;
+
+    }
+    let NavBarType;
+
+    if (this.state.isHealth === true) {
+      NavBarType = <NavBarH />;
+    } else {
+      NavBarType = <NavBar />;
+    }
+
+
 
         return (
             <div>
                 <div className="back bg-white">
+                {NavBarType}
+
                     <div className="bg-blue-500 headerText justify-center align-middle text-center">
                     <h2>Get A No Obligation Medicare Insurance Quote</h2>
                     </div> 

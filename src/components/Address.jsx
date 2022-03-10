@@ -6,7 +6,8 @@ import Footer from '../Footer.jsx'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 
-
+import NavBarH from './health/NavBarH';
+import NavBar from '../NavBar';
 
 
 class Address extends Component {
@@ -15,6 +16,10 @@ class Address extends Component {
         super(props);
 
         this.state = { address: '' };
+this.state = {
+              isHealth: true
+            };
+          
 
         this.nextStep = this.nextStep.bind(this);
         this.nextStep = this.nextStep.bind(this);
@@ -73,17 +78,55 @@ class Address extends Component {
         const month = urlParams.get('month');
         const day = urlParams.get('day');
         const year = urlParams.get('year');
+        const health = urlParams.get('health')
 
-        this.props.history.push('/name' + '?lp_request_id=' + lp + '&zip_code=' + zip + '&ab=' + ab + '&gender=' + gender + '&month=' + month + '&day=' + day + '&year=' + year + '&address=' + skip);
+        this.props.history.push('/name' + '?lp_request_id=' + lp + '&zip_code=' + zip + '&ab=' + ab + '&gender=' + gender + '&month=' + month + '&day=' + day + '&year=' + year + '&address=' + skip + '&health=' + health);
+    }
+
+    getHealth() {
+        const urlSearch = window.location.search;
+
+        const urlParams = new URLSearchParams(urlSearch);
+        const isTrue = urlParams.get('health')
+
+        switch (isTrue) {
+            case 'true':
+                return <NavBarH />
+            case 'fasle':
+                return <NavBar></NavBar>
+        }
     }
 
 
     render() {
+
+        const urlSearch = window.location.search;
+
+    const urlParams = new URLSearchParams(urlSearch);
+    const health = urlParams.get('health')
+
+    if (health === 'true') {
+      this.state.isHealth = true;
+    }
+    else {
+      this.state.isHealth = false;
+
+    }
+    let NavBarType;
+
+    if (this.state.isHealth === true) {
+      NavBarType = <NavBarH />;
+    } else {
+      NavBarType = <NavBar />;
+    }
+
+        
         return (
             <div>
-                   <div className="back bg-white">
+                <div className="back bg-white">
+                {NavBarType}
+
                 <div className="bg-blue-500 headerText justify-center align-middle text-center">
-                    <h2>Get A No Obligation Medicare Insurance Quote</h2>
                 </div>
                 <div className="bg-white rounded-lg shadow-xl sm:max-w-md sm:w-full sm:mx-auto sm:overflow-hidden m-12 formDiv content-center">
                     <div className="px-4 py-8 sm:px-10">

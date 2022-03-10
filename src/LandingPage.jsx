@@ -13,7 +13,9 @@ import Connect from './Assets/Connect.svg';
 import Form from './Assets/Form.svg';
 
 
+
 import $ from 'jquery';
+import NavBar from './NavBar';
 
 
 class LandingPage extends Component {
@@ -72,7 +74,7 @@ class LandingPage extends Component {
 
           localStorage.setItem('zip', val);
 
-          document.getElementById('zipCode').value = val
+          document.getElementById('zipCode').value = val;
           document.getElementById('zip').value = val;
     
           let zipVal = localStorage.getItem('zip');
@@ -149,6 +151,7 @@ this.props.history.push('/age' + '?lp=' + lp + '&zip=' + zipValue + '&city=' + c
 {/* Start Of how it works */}
 <section className="relative pb-10 overflow-hidden backdrop">
 
+              <NavBar />
   <ToastContainer 
           position="top-center"
           autoClose={5000}

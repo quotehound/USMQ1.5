@@ -8,7 +8,8 @@ import 'react-toastify/dist/ReactToastify.min.css';
 
 import Footer from '../Footer';
 
-
+import NavBarH from './health/NavBarH';
+import NavBar from '../NavBar';
 class Year extends Component {
 
     constructor(props) {
@@ -17,6 +18,11 @@ class Year extends Component {
         this.state = { year: '' };
 
         this.nextStep = this.nextStep.bind(this);
+
+            this.state = {
+              isHealth: true
+            };
+    
     }
 
 
@@ -31,7 +37,8 @@ class Year extends Component {
         const ab = urlParams.get('ab');
     const gender = urlParams.get('gender');
     const month = urlParams.get('month');
-    const day = urlParams.get('day');
+        const day = urlParams.get('day');
+        const health = urlParams.get('health')
         
 
 
@@ -54,7 +61,7 @@ class Year extends Component {
             this.props.setDOB(month + '/' + day + '/' + year)
 
 
-            this.props.history.push('/address' + '?lp=' + lp + '&zip=' + zip + '&ab=' + ab + '&gender=' + gender + '&month=' + month + '&day=' + day + '&year=' + year);
+            this.props.history.push('/address' + '?lp=' + lp + '&zip=' + zip + '&ab=' + ab + '&gender=' + gender + '&month=' + month + '&day=' + day + '&year=' + year + '&health=' + health);
         }
 
     }
@@ -73,19 +80,45 @@ class Year extends Component {
         const ab = urlParams.get('ab');
     const gender = urlParams.get('gender');
     const month = urlParams.get('month');
-    const day = urlParams.get('day');
+        const day = urlParams.get('day');
+        const health = urlParams.get('health')
+
 
     this.props.setDOB(skip + '-' + month + '-' + day)
 
 
-    this.props.history.push('/address' + '?lp_request_id=' + lp + '&zip=' + zip + '&ab=' + ab + '&gender=' + gender + '&month=' + month + '&day=' + day + '&year=' + skip);
+    this.props.history.push('/address' + '?lp_request_id=' + lp + '&zip=' + zip + '&ab=' + ab + '&gender=' + gender + '&month=' + month + '&day=' + day + '&year=' + skip + '&health=' + health);
     }
 
 
     render() {
+
+        const urlSearch = window.location.search;
+
+    const urlParams = new URLSearchParams(urlSearch);
+    const health = urlParams.get('health')
+
+    if (health === 'true') {
+      this.state.isHealth = true;
+    }
+    else {
+      this.state.isHealth = false;
+
+    }
+    let NavBarType;
+
+    if (this.state.isHealth === true) {
+      NavBarType = <NavBarH />;
+    } else {
+      NavBarType = <NavBar />;
+    }
+
+        
         return (
             <div>
                 <div className="back bg-white">
+                {NavBarType}
+
                     <div className="bg-blue-500 headerText justify-center align-middle text-center">
                     <h2>Get A No Obligation Medicare Insurance Quote</h2>
                     </div>

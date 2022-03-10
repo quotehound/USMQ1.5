@@ -3,6 +3,8 @@ import { withRouter } from 'react-router-dom'
 import ConnectStreams from '../ConnectMe';
 import MA from '../MA';
 
+import NavBar from '../NavBar';
+import NavBarH from './health/NavBarH';
 import './forms.css';
 class ThankYou extends Component {
     render() {
@@ -17,11 +19,31 @@ class ThankYou extends Component {
 
       const tele = document.getElementById('tele').value;
 
+     
+      const health = urlParams.get('health')
+  
+      if (health === 'true') {
+        this.state.isHealth = true;
+      }
+      else {
+        this.state.isHealth = false;
+  
+      }
+      let NavBarType;
+  
+      if (this.state.isHealth === true) {
+        NavBarType = <NavBarH />;
+      } else {
+        NavBarType = <NavBar />;
+      }
+  
+
       console.log(phone)
         return (
 
           
             <div>
+      {NavBarType}
 
                 <div className="bg-blue-500 headerText justify-center align-middle text-center h-screen">
                 <h2>Get A No Obligation Medicare Insurance Quote</h2>

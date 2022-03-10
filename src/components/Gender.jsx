@@ -8,8 +8,16 @@ import { withRouter } from 'react-router';
 import './forms.css';
 import Footer from '../Footer';
 
-
+import NavBarH from './health/NavBarH';
+import NavBar from '../NavBar';
 class Gender extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      isHealth: true
+    };
+  }
 
 
   onFinish = (values) => {
@@ -29,8 +37,9 @@ class Gender extends Component {
     const zip = urlParams.get('zip');
     const lp = urlParams.get('lp');
     const ab = urlParams.get('ab');
+    const health = urlParams.get('health')
 
-    this.props.history.push('/month' + '?lp=' + lp + '&zip=' + zip + '&ab=' + ab + '&gender=' + g)
+    this.props.history.push('/month' + '?lp=' + lp + '&zip=' + zip + '&ab=' + ab + '&gender=' + g + '&health=' + health)
     
 
 
@@ -53,16 +62,40 @@ class Gender extends Component {
     const zip = urlParams.get('zip');
     const lp = urlParams.get('lp');
     const ab = urlParams.get('ab');
+    const health = urlParams.get('health')
 
-    this.props.history.push('/month' + '?lp=' + lp + '&zip=' + zip + '&ab=' + ab + '&gender=' + skip)
+    this.props.history.push('/month' + '?lp=' + lp + '&zip=' + zip + '&ab=' + ab + '&gender=' + skip + '&health=' + health)
 
   }
 
 
+
   render() {
+    const urlSearch = window.location.search;
+
+    const urlParams = new URLSearchParams(urlSearch);
+    const health = urlParams.get('health')
+
+    if (health === 'true') {
+      this.state.isHealth = true;
+    }
+    else {
+      this.state.isHealth = false;
+
+    }
+    let NavBarType;
+
+    if (this.state.isHealth === true) {
+      NavBarType = <NavBarH />;
+    } else {
+      NavBarType = <NavBar />;
+    }
+
     return (
 
       <div className="back bg-white"> 
+                           
+      {NavBarType}
        <div className="bg-blue-500 headerText justify-center align-middle text-center">
        <h2>Get A No Obligation Medicare Insurance Quote</h2>
                 </div>

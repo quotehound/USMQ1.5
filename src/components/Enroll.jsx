@@ -4,11 +4,17 @@ import {withRouter} from 'react-router';
 import './forms.css';
 import Footer from '../Footer';
 
-
+import NavBarH from './health/NavBarH';
+import NavBar from '../NavBar';
 class Enrolled extends Component {
 
    
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      isHealth: true
+    };
+  }
     onNext = (values) => {
 
         values.preventDefault();
@@ -19,7 +25,7 @@ class Enrolled extends Component {
 
         const urlSearch = window.location.search;
 
-        const urlParams = new URLSearchParams(urlSearch);
+      const urlParams = new URLSearchParams(urlSearch);
     
         const zip = urlParams.get('zip');
       var lp = urlParams.get('lp');
@@ -38,15 +44,39 @@ class Enrolled extends Component {
       console.log(localStorage)
     
 
-        this.props.history.push('/gender' + '?lp=' + lp + '&zip_code=' + zip + '&ab=' + v)
+      this.props.history.push('/gender' + '?lp=' + lp + '&zip_code=' + zip + '&ab=' + v + '&health=false')
 
         
     }
 
 
-    render() {
+  render() {
+      
+    const urlSearch = window.location.search;
+
+    const urlParams = new URLSearchParams(urlSearch);
+    const health = urlParams.get('health')
+
+    if (health === 'true') {
+      this.state.isHealth = true;
+    }
+    else {
+      this.state.isHealth = false;
+
+    }
+    let NavBarType;
+
+    if (this.state.isHealth === true) {
+      NavBarType = <NavBarH />;
+    } else {
+      NavBarType = <NavBar />;
+    }
+
+
         return (
-            <div className="back bg-white"> 
+          <div className="back bg-white"> 
+                  {NavBarType}
+
        <div className="bg-blue-500 headerText justify-center align-middle text-center">
        <h2>Get A No Obligation Medicare Insurance Quote</h2>
                 </div>
