@@ -212,7 +212,7 @@ this.props.history.push('/age' + '?lp=' + lp + '&zip=' + zipValue + '&city=' + c
 
         </span>
         <h3 className="mb-4 text-2xl font-bold font-heading" data-config-id="header3">Get Connected </h3>
-        <p className="text-lg text-black leading-loose max-w-lg mx-auto lg:px-12" data-config-id="desc3">Connect to get real rates accross our partners.</p>
+        <p className="text-lg text-black leading-loose max-w-lg mx-auto lg:px-12" data-config-id="desc3">Connect to get real rates across our partners.</p>
 
 
       </div>
