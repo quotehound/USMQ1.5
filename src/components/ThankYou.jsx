@@ -7,6 +7,13 @@ import NavBar from '../NavBar';
 import NavBarH from './health/NavBarH';
 import './forms.css';
 class ThankYou extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isHealth: true
+    };
+  }
+  
     render() {
 
       const urlSearch = window.location.search;
